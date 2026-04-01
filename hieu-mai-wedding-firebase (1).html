@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Hiếu & Mai — 03.05.2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --espresso: #8a6448;
+  --caramel:  #c9a98a;
+  --nude:     #dfd2c3;
+  --linen:    #f0ebe4;
+  --offwhite: #faf7f4;
+  --dark:     #3b2a1e;
+  --mid:      #7a6050;
+  --soft:     #c4b5a8;
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; background:var(--offwhite); color:var(--dark); min-height:100vh; overflow-x:hidden; }
+
+.screen { display:none; min-height:100vh; animation:screenIn 0.45s ease; }
+.screen.active { display:flex; flex-direction:column; }
+@keyframes screenIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+/* ══ SCREEN 1 ══ */
+#s-welcome { align-items:center;justify-content:center;background:linear-gradient(160deg,#fff 0%,var(--linen) 60%,#ede5d8 100%);padding:2rem 1.5rem;text-align:center;position:relative;overflow:hidden; }
+.welcome-inner { position:relative;z-index:1;width:100%;max-width:420px; }
+.arch-deco { width:64px;height:74px;margin:0 auto 1.5rem;border:1.5px solid var(--nude);border-radius:32px 32px 0 0;display:flex;align-items:center;justify-content:center;font-size:1.5rem; }
+.badge { display:inline-block;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--espresso);border:1px solid var(--nude);padding:0.35rem 1rem;border-radius:20px;margin-bottom:1.8rem;background:rgba(255,255,255,0.6); }
+.couple-title { font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,12vw,4.5rem);font-weight:300;line-height:1;color:var(--dark); }
+.couple-title em { font-style:italic;color:var(--espresso); }
+.couple-amp { font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--caramel);display:block;margin:0.2rem 0; }
+.wedding-date { font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--mid);margin:1.2rem 0 2.5rem; }
+.divider-floral { display:flex;align-items:center;gap:0.7rem;margin:1.5rem auto;width:fit-content; }
+.divider-floral::before,.divider-floral::after { content:'';display:block;width:40px;height:1px;background:var(--nude); }
+.divider-floral span { font-size:0.9rem;color:var(--caramel); }
+.tagline { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--mid);line-height:1.6;margin-bottom:2.5rem; }
+.input-card { background:rgba(255,255,255,0.85);border:1px solid var(--nude);border-radius:12px;padding:1.8rem 1.5rem;backdrop-filter:blur(8px);box-shadow:0 4px 30px rgba(138,100,72,0.08);margin-bottom:1.5rem; }
+.input-label { font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--dark);margin-bottom:1rem;display:block; }
+.text-input { width:100%;background:#fff;border:1.5px solid var(--nude);border-radius:8px;padding:0.85rem 1.1rem;font-family:'DM Sans',sans-serif;font-size:0.95rem;color:var(--dark);outline:none;transition:border-color 0.2s,box-shadow 0.2s; }
+.text-input:focus { border-color:var(--caramel);box-shadow:0 0 0 3px rgba(201,169,138,0.12); }
+.text-input::placeholder { color:var(--soft); }
+
+/* ── BUTTONS ── */
+.btn-primary { width:100%;background:linear-gradient(135deg,var(--espresso) 0%,#6b4e38 100%);color:#fff;border:none;border-radius:8px;padding:1rem 2rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:opacity 0.2s,transform 0.1s;box-shadow:0 4px 16px rgba(138,100,72,0.25); }
+.btn-primary:hover { opacity:0.9; }
+.btn-primary:active { transform:scale(0.98); }
+.btn-primary:disabled { opacity:0.4;cursor:not-allowed; }
+.btn-secondary { background:transparent;border:1.5px solid var(--nude);border-radius:8px;padding:0.75rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);cursor:pointer;transition:border-color 0.2s,color 0.2s; }
+.btn-secondary:hover { border-color:var(--caramel);color:var(--espresso); }
+
+/* ══ SCREEN 2 ══ */
+#s-brief { background:var(--offwhite);padding:0;align-items:stretch; }
+.brief-hero { background:linear-gradient(160deg,#3b2a1e 0%,#5c4030 100%);padding:3rem 1.5rem 2.5rem;text-align:center;position:relative;overflow:hidden; }
+.brief-hero::after { content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(201,169,138,0.2) 0%,transparent 60%); }
+.spy-icon { font-size:3rem;margin-bottom:1rem;display:block;position:relative;z-index:1; }
+.brief-hero h2 { font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,6vw,2.4rem);font-weight:300;color:#fff;position:relative;z-index:1;line-height:1.2; }
+.brief-hero h2 em { color:var(--caramel);font-style:italic; }
+.brief-hero p { font-size:0.85rem;color:rgba(255,255,255,0.65);margin-top:0.8rem;position:relative;z-index:1;line-height:1.7; }
+.brief-body { padding:2rem 1.5rem;flex:1; }
+.mission-label { font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--caramel);margin-bottom:1.2rem;display:block; }
+.checklist-grid { display:grid;gap:0.7rem; }
+.check-item { display:flex;align-items:center;gap:0.85rem;background:#fff;border:1.5px solid var(--nude);border-radius:10px;padding:0.9rem 1rem;cursor:pointer;transition:all 0.2s;user-select:none; }
+.check-item:hover { border-color:var(--caramel);background:rgba(201,169,138,0.06); }
+.check-item.checked { border-color:var(--espresso);background:rgba(138,100,72,0.05); }
+.check-box { width:22px;height:22px;min-width:22px;border:1.5px solid var(--nude);border-radius:5px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-size:0.7rem;background:#fff; }
+.check-item.checked .check-box { background:var(--espresso);border-color:var(--espresso);color:#fff; }
+.check-emoji { font-size:1.2rem;min-width:24px;text-align:center; }
+.check-text { font-size:0.88rem;color:var(--dark);font-weight:400;line-height:1.3; }
+.brief-footer { padding:1.5rem; }
+.brief-note { font-size:0.75rem;color:var(--soft);text-align:center;margin-bottom:1rem;line-height:1.6; }
+
+/* ══ SCREEN 3 ══ */
+#s-upload { background:var(--offwhite); }
+.upload-header { background:linear-gradient(160deg,var(--linen) 0%,#e8ddd4 100%);padding:2rem 1.5rem 1.5rem;text-align:center;border-bottom:1px solid var(--nude); }
+.upload-header .guest-name { font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--caramel);margin-bottom:0.4rem; }
+.upload-header h3 { font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--dark); }
+.mission-tabs { display:flex;overflow-x:auto;gap:0.5rem;padding:1rem 1rem 0.5rem;scrollbar-width:none; }
+.mission-tabs::-webkit-scrollbar { display:none; }
+.mission-tab { flex:0 0 auto;background:#fff;border:1.5px solid var(--nude);border-radius:20px;padding:0.45rem 0.9rem;font-size:0.75rem;cursor:pointer;transition:all 0.2s;white-space:nowrap;color:var(--mid); }
+.mission-tab.active { background:var(--espresso);border-color:var(--espresso);color:#fff; }
+.upload-content { padding:1rem;flex:1; }
+.upload-zone { border:2px dashed var(--nude);border-radius:12px;padding:2.5rem 1rem;text-align:center;cursor:pointer;transition:all 0.2s;background:rgba(255,255,255,0.6);position:relative;margin-bottom:1rem; }
+.upload-zone:hover,.upload-zone.drag-over { border-color:var(--caramel);background:rgba(201,169,138,0.06); }
+.upload-zone input { position:absolute;inset:0;opacity:0;cursor:pointer; }
+.upload-zone .uz-icon { font-size:2.2rem;margin-bottom:0.6rem;display:block; }
+.upload-zone .uz-title { font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--dark);margin-bottom:0.3rem; }
+.upload-zone .uz-sub { font-size:0.75rem;color:var(--soft); }
+.upload-zone .uz-mission { font-size:0.78rem;color:var(--espresso);font-weight:500;margin-top:0.5rem; }
+.mini-gallery { display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:1rem; }
+.mini-photo { aspect-ratio:1;overflow:hidden;border-radius:6px;background:var(--nude);cursor:pointer;position:relative; }
+.mini-photo img { width:100%;height:100%;object-fit:cover;display:block; }
+.mini-photo .mp-label { position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(59,42,30,0.6));color:#fff;font-size:0.6rem;padding:0.3rem 0.4rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+.upload-footer { padding:1rem 1rem 1.5rem; }
+.checklist-progress { background:rgba(255,255,255,0.8);border:1px solid var(--nude);border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem; }
+.cp-label { font-size:0.7rem;color:var(--mid);letter-spacing:0.1em;margin-bottom:0.5rem; }
+.cp-dots { display:flex;gap:4px;flex-wrap:wrap; }
+.cp-dot { width:10px;height:10px;border-radius:50%;background:var(--nude);transition:background 0.3s; }
+.cp-dot.done { background:var(--espresso); }
+
+/* Upload overlay */
+.upload-overlay { position:fixed;inset:0;background:rgba(59,42,30,0.75);z-index:150;display:none;align-items:center;justify-content:center; }
+.upload-overlay.show { display:flex; }
+.upload-overlay-box { background:#fff;border-radius:12px;padding:2rem 2.5rem;text-align:center;min-width:240px;box-shadow:0 8px 40px rgba(0,0,0,0.2); }
+.upload-overlay-box p { font-size:0.85rem;color:var(--mid);margin-bottom:1rem; }
+.prog-bar { height:4px;background:var(--nude);border-radius:2px;overflow:hidden; }
+.prog-fill { height:100%;background:var(--espresso);width:0;transition:width 0.2s; }
+.prog-pct { font-size:0.75rem;color:var(--soft);margin-top:0.5rem; }
+
+/* ══ SCREEN 4 ══ */
+#s-gallery { background:var(--offwhite); }
+.gallery-hero { background:linear-gradient(160deg,#fff 0%,var(--linen) 100%);padding:2rem 1.5rem;text-align:center;border-bottom:1px solid var(--nude); }
+.gallery-hero .ch-title { font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,6vw,2.6rem);font-weight:300;color:var(--dark);line-height:1.1; }
+.gallery-hero .ch-title em { font-style:italic;color:var(--espresso); }
+.gallery-hero .ch-date { font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--caramel);margin-top:0.4rem; }
+.album-tabs { display:flex;overflow-x:auto;gap:0.5rem;padding:1rem 1rem 0;scrollbar-width:none; }
+.album-tabs::-webkit-scrollbar { display:none; }
+.album-tab { flex:0 0 auto;padding:0.4rem 0.85rem;border-radius:20px;font-size:0.72rem;cursor:pointer;transition:all 0.2s;white-space:nowrap;background:#fff;border:1.5px solid var(--nude);color:var(--mid);display:flex;align-items:center;gap:0.35rem; }
+.album-tab.active { background:var(--espresso);border-color:var(--espresso);color:#fff; }
+.album-tab .tab-count { border-radius:10px;padding:0.05rem 0.35rem;font-size:0.65rem; }
+.album-tab.active .tab-count { background:rgba(255,255,255,0.25); }
+.album-tab:not(.active) .tab-count { background:var(--linen);color:var(--mid); }
+.gallery-grid-container { padding:1rem; }
+.gallery-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:3px; }
+.gallery-item { aspect-ratio:1;overflow:hidden;background:var(--nude);cursor:pointer;position:relative;animation:fadeIn 0.3s ease; }
+.gallery-item img { width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s; }
+.gallery-item:hover img { transform:scale(1.05); }
+.gallery-item .gi-name { position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(59,42,30,0.65));color:#fff;font-size:0.6rem;padding:0.8rem 0.4rem 0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+.gallery-item:first-child { grid-column:span 2;grid-row:span 2; }
+@keyframes fadeIn { from{opacity:0;transform:scale(0.96)} to{opacity:1;transform:scale(1)} }
+.empty-album { grid-column:1/-1;padding:3rem 1rem;text-align:center; }
+.empty-album p { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--soft); }
+.loading-grid { grid-column:1/-1;padding:3rem;text-align:center; }
+.spinner { width:28px;height:28px;border:2.5px solid var(--nude);border-top-color:var(--espresso);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 1rem; }
+@keyframes spin { to{transform:rotate(360deg)} }
+
+/* ══ SCREEN 5 ══ */
+#s-thanks { align-items:center;justify-content:center;background:linear-gradient(160deg,#fff 0%,var(--linen) 60%,#e8ddd4 100%);padding:2rem 1.5rem;text-align:center;position:relative;overflow:hidden; }
+.thanks-inner { position:relative;z-index:1;max-width:400px; }
+.thanks-icon { font-size:3.5rem;display:block;margin-bottom:1.5rem; }
+.thanks-inner h2 { font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,8vw,3rem);font-weight:300;color:var(--dark);line-height:1.1;margin-bottom:0.5rem; }
+.thanks-inner h2 em { font-style:italic;color:var(--espresso); }
+.thanks-inner p { font-size:0.88rem;color:var(--mid);line-height:1.8;margin:1rem 0 2rem; }
+.confetti-piece { position:absolute;pointer-events:none;animation:confettiFall linear infinite; }
+@keyframes confettiFall { 0%{transform:translateY(-20px) rotate(0deg);opacity:1} 100%{transform:translateY(105vh) rotate(720deg);opacity:0} }
+.ornament { font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--caramel);letter-spacing:0.3em;display:block;text-align:center;margin:1rem 0; }
+
+/* ── LIGHTBOX ── */
+.lightbox { position:fixed;inset:0;background:rgba(30,20,14,0.97);z-index:200;display:none;align-items:center;justify-content:center;padding:1rem; }
+.lightbox.open { display:flex; }
+.lightbox img { max-width:100%;max-height:88vh;object-fit:contain;border-radius:4px; }
+.lb-close { position:absolute;top:1rem;right:1.2rem;color:rgba(255,255,255,0.6);font-size:2rem;cursor:pointer;line-height:1;transition:color 0.2s; }
+.lb-close:hover { color:var(--caramel); }
+.lb-meta { position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.5);font-size:0.72rem;letter-spacing:0.1em;white-space:nowrap; }
+.lb-nav { position:absolute;top:50%;transform:translateY(-50%);background:rgba(201,169,138,0.15);border:1px solid rgba(201,169,138,0.25);color:rgba(255,255,255,0.7);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:background 0.2s; }
+.lb-nav:hover { background:rgba(201,169,138,0.3); }
+.lb-nav.prev { left:0.6rem; }
+.lb-nav.next { right:0.6rem; }
+
+/* ── BOTTOM NAV ── */
+.bottom-nav { position:fixed;bottom:0;left:0;right:0;background:rgba(250,247,244,0.95);border-top:1px solid var(--nude);display:none;justify-content:space-around;padding:0.6rem 0 calc(0.6rem + env(safe-area-inset-bottom));backdrop-filter:blur(10px);z-index:100; }
+.bottom-nav.show { display:flex; }
+.nav-btn { display:flex;flex-direction:column;align-items:center;gap:0.2rem;background:none;border:none;cursor:pointer;font-size:1.2rem;color:var(--soft);transition:color 0.2s;padding:0.2rem 1rem;font-family:'DM Sans',sans-serif; }
+.nav-btn span { font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase; }
+.nav-btn.active { color:var(--espresso); }
+body.has-nav { padding-bottom:70px; }
+
+/* ── TOAST ── */
+.toast { position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--dark);color:#fff;padding:0.7rem 1.4rem;border-radius:8px;font-size:0.78rem;letter-spacing:0.06em;z-index:300;transition:transform 0.3s ease;border-left:3px solid var(--caramel);box-shadow:0 4px 20px rgba(0,0,0,0.2);white-space:nowrap; }
+.toast.show { transform:translateX(-50%) translateY(0); }
+
+/* Config warning */
+.config-banner { background:#b86a5a;color:#fff;padding:0.75rem 1rem;font-size:0.78rem;text-align:center;line-height:1.6;display:none;position:fixed;top:0;left:0;right:0;z-index:400; }
+.config-banner.show { display:block; }
+body.has-banner { padding-top:52px; }
+.w-full { width:100%; }
+</style>
+</head>
+<body>
+
+<div class="config-banner" id="config-banner">
+  ⚠️ Chưa cấu hình Firebase — mở file HTML, tìm <strong>PASTE_YOUR_</strong> và thay bằng config thật của bạn.
+</div>
+
+<!-- ══════════ SCREEN 1 — WELCOME ══════════ -->
+<div id="s-welcome" class="screen active">
+  <div class="welcome-inner">
+    <div class="arch-deco">💍</div>
+    <span class="badge">Wedding Gallery · 03.05.2026</span>
+    <div class="couple-title">
+      <em>Hiếu</em>
+      <span class="couple-amp">&amp;</span>
+      <em>Mai</em>
+    </div>
+    <div class="wedding-date">03 tháng 05 năm 2026</div>
+    <div class="divider-floral"><span>✦</span></div>
+    <p class="tagline">Chào mừng bạn đến với<br>khoảnh khắc đặc biệt nhất của chúng tôi</p>
+    <div class="input-card">
+      <label class="input-label" for="guest-name-input">🌸 Bạn tên là...</label>
+      <input type="text" id="guest-name-input" class="text-input" placeholder="Nhập tên của bạn" autocomplete="off">
+    </div>
+    <button class="btn-primary" id="btn-start" onclick="goToBrief()" disabled>Tiếp tục →</button>
+    <p style="font-size:0.72rem;color:var(--soft);margin-top:1.2rem;line-height:1.6;">
+      Ảnh của bạn sẽ được chia sẻ với tất cả khách mời 🤍
+    </p>
+  </div>
+</div>
+
+<!-- ══════════ SCREEN 2 — SPY BRIEF ══════════ -->
+<div id="s-brief" class="screen">
+  <div class="brief-hero">
+    <span class="spy-icon">🕵️</span>
+    <h2>Nhiệm vụ điệp viên<br><em>đám cưới xuất sắc</em></h2>
+    <p>Bạn có đồng ý nhận nhiệm vụ chụp ảnh bí mật<br>và trở thành điệp viên ảnh của đám cưới này không?</p>
+  </div>
+  <div class="brief-body">
+    <span class="mission-label">📋 Chọn nhiệm vụ của bạn</span>
+    <p style="font-size:0.8rem;color:var(--mid);margin-bottom:1rem;line-height:1.6;">
+      Chọn những khoảnh khắc bạn sẽ chụp hôm nay. Bạn có thể chọn nhiều hoặc tất cả!
+    </p>
+    <div class="checklist-grid" id="mission-checklist"></div>
+  </div>
+  <div class="brief-footer">
+    <p class="brief-note">Ảnh xuất hiện realtime cho tất cả khách mời ngay khi bạn tải lên! 📸</p>
+    <button class="btn-primary" onclick="goToUpload()">Tôi chấp nhận nhiệm vụ! 🎯</button>
+    <div style="margin-top:0.8rem;text-align:center;">
+      <button class="btn-secondary" onclick="selectAllMissions()">Chọn tất cả</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SCREEN 3 — UPLOAD ══════════ -->
+<div id="s-upload" class="screen">
+  <div class="upload-header">
+    <p class="guest-name" id="upload-guest-label">Điệp viên: —</p>
+    <h3>Tải ảnh lên</h3>
+  </div>
+  <div style="padding:0.8rem 1rem 0;">
+    <div class="checklist-progress">
+      <div class="cp-label">Tiến độ nhiệm vụ</div>
+      <div class="cp-dots" id="cp-dots"></div>
+    </div>
+  </div>
+  <div class="mission-tabs" id="upload-tabs"></div>
+  <div class="upload-content">
+    <div class="upload-zone" id="upload-zone">
+      <input type="file" id="file-input" accept="image/*" multiple>
+      <span class="uz-icon">📷</span>
+      <p class="uz-title">Nhấn để chọn ảnh</p>
+      <p class="uz-sub">Hoặc kéo ảnh vào đây · Nhiều ảnh cùng lúc</p>
+      <p class="uz-mission" id="uz-mission-label"></p>
+    </div>
+    <div id="mini-gallery-container"></div>
+  </div>
+  <div class="upload-footer">
+    <button class="btn-primary" onclick="goToGallery()" style="margin-bottom:0.7rem;">Xem Gallery chung 🖼</button>
+    <div style="text-align:center;">
+      <button class="btn-secondary" onclick="goToThanks()">Hoàn thành ✓</button>
+    </div>
+  </div>
+</div>
+
+<!-- Upload progress overlay -->
+<div class="upload-overlay" id="upload-overlay">
+  <div class="upload-overlay-box">
+    <p id="overlay-msg">Đang tải lên...</p>
+    <div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div>
+    <div class="prog-pct" id="prog-pct">0%</div>
+  </div>
+</div>
+
+<!-- ══════════ SCREEN 4 — GALLERY ══════════ -->
+<div id="s-gallery" class="screen">
+  <div class="gallery-hero">
+    <div class="ch-title"><em>Hiếu</em> &amp; <em>Mai</em></div>
+    <div class="ch-date">03 · 05 · 2026 — Khoảnh khắc đẹp</div>
+  </div>
+  <div class="album-tabs" id="album-tabs"></div>
+  <div class="gallery-grid-container">
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="loading-grid">
+        <div class="spinner"></div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--soft);">Đang tải ảnh...</p>
+      </div>
+    </div>
+  </div>
+  <div style="padding:1rem;">
+    <button class="btn-secondary w-full" onclick="goToUpload()">+ Tải thêm ảnh</button>
+  </div>
+</div>
+
+<!-- ══════════ SCREEN 5 — THANKS ══════════ -->
+<div id="s-thanks" class="screen">
+  <div class="thanks-inner">
+    <span class="thanks-icon">🤍</span>
+    <h2>Cảm ơn<br><em>bạn rất nhiều!</em></h2>
+    <p>
+      Ảnh của bạn đã được lưu lên cloud và chia sẻ với tất cả khách mời.<br>
+      Cảm ơn bạn đã góp phần làm cho ngày hôm nay trở nên thật đặc biệt!
+    </p>
+    <div class="ornament">— ✦ —</div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--mid);">Hiếu &amp; Mai · 03.05.2026</p>
+    <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.7rem;">
+      <button class="btn-primary" onclick="goToGallery()">Xem Gallery chung 📸</button>
+      <button class="btn-secondary" onclick="goToUpload()">Tải thêm ảnh</button>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom Nav -->
+<nav class="bottom-nav" id="bottom-nav">
+  <button class="nav-btn" id="nav-upload"  onclick="goToUpload()"><span>📷</span><span>Chụp</span></button>
+  <button class="nav-btn" id="nav-gallery" onclick="goToGallery()"><span>🖼</span><span>Gallery</span></button>
+  <button class="nav-btn" id="nav-thanks"  onclick="goToThanks()"><span>🤍</span><span>Hoàn thành</span></button>
+</nav>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="lb-close" onclick="closeLightbox()">×</span>
+  <div class="lb-nav prev" onclick="lbNav(-1)">‹</div>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-nav next" onclick="lbNav(1)">›</div>
+  <div class="lb-meta" id="lb-meta"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ══════════════════════════════════════════
+     FIREBASE — ESM module
+     ══════════════════════════════════════════ -->
+<script type="module">
+import { initializeApp }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc, onSnapshot, query, orderBy }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+// ── Firebase config (Firestore only — ảnh lưu Cloudinary) ──
+const firebaseConfig = {
+  apiKey:            "AIzaSyA3ZsEDvU2cCc8gC4TFJzwO0oCSsERZVjc",
+  authDomain:        "hieu-mai-wedding.firebaseapp.com",
+  projectId:         "hieu-mai-wedding",
+  storageBucket:     "hieu-mai-wedding.firebasestorage.app",
+  messagingSenderId: "34771580140",
+  appId:             "1:34771580140:web:49904b0e2fa3c88542e1c9"
+};
+
+// ── Cloudinary config (lưu file ảnh) ──
+window.CLOUDINARY_CLOUD = "dqmnfhhhx";
+window.CLOUDINARY_PRESET = "wedding";
+
+try {
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+  window._fb = { db, collection, addDoc, onSnapshot, query, orderBy };
+  window._fbOK = true;
+} catch(e) {
+  console.error("Firebase init failed:", e);
+  window._fbOK = false;
+  document.getElementById('config-banner').classList.add('show');
+  document.body.classList.add('has-banner');
+}
+
+document.dispatchEvent(new Event('fb-ready'));
+</script>
+
+<!-- ══════════════════════════════════════════
+     APP LOGIC
+     ══════════════════════════════════════════ -->
+<script>
+const MISSIONS = [
+  { id:'group',  emoji:'👥', label:'Ảnh nhóm của bạn' },
+  { id:'couple', emoji:'💑', label:'Khoảnh khắc cô dâu & chú rể' },
+  { id:'outfit', emoji:'👗', label:'Bộ trang phục độc đáo nhất' },
+  { id:'funny',  emoji:'😜', label:'Một khuôn mặt ngộ nghĩnh' },
+  { id:'speech', emoji:'🎤', label:'Ai đó đang phát biểu' },
+  { id:'laugh',  emoji:'😄', label:'Ai đó đang cười' },
+  { id:'sweet',  emoji:'🌸', label:'Một khoảnh khắc ngọt ngào' },
+  { id:'kids',   emoji:'💃', label:'Trẻ em đang nhảy múa' },
+  { id:'selfie', emoji:'🤳', label:'Một bức ảnh selfie' },
+];
+
+let G = {
+  guestName: '',
+  selectedMissions: [],
+  activeMission: null,
+  remotePhotos: [],    // live from Firestore
+  localPhotos: {},     // fallback localStorage
+  activeGalleryTab: 'all',
+};
+
+// localStorage fallback
+try {
+  const ls = JSON.parse(localStorage.getItem('hm26') || '{}');
+  G.localPhotos = ls.p || {};
+} catch(e){}
+function saveLocal() {
+  try { localStorage.setItem('hm26', JSON.stringify({ p: G.localPhotos })); } catch(e){}
+}
+
+let _lbList = [], _lbIdx = 0;
+
+// ── FIREBASE READY ──
+document.addEventListener('fb-ready', () => {
+  if (window._fbOK) startRealtimeListener();
+});
+
+function startRealtimeListener() {
+  const { db, collection, onSnapshot, query, orderBy } = window._fb;
+  const q = query(collection(db, 'photos'), orderBy('createdAt', 'asc'));
+  onSnapshot(q, snap => {
+    G.remotePhotos = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    refreshLiveViews();
+  });
+}
+
+function refreshLiveViews() {
+  if (document.getElementById('s-gallery').classList.contains('active')) {
+    buildAlbumTabs();
+    renderGallery(G.activeGalleryTab);
+  }
+  if (document.getElementById('s-upload').classList.contains('active')) {
+    buildUploadTabs();
+    buildCpDots();
+    renderMiniGallery(G.activeMission);
+  }
+}
+
+// ── SCREEN NAV ──
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+  const nav = ['s-upload','s-gallery','s-thanks'].includes(id);
+  document.getElementById('bottom-nav').classList.toggle('show', nav);
+  document.body.classList.toggle('has-nav', nav);
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const map = { 's-upload':'nav-upload', 's-gallery':'nav-gallery', 's-thanks':'nav-thanks' };
+  if (map[id]) document.getElementById(map[id]).classList.add('active');
+}
+
+// ── SCREEN 1 ──
+document.getElementById('guest-name-input').addEventListener('input', function() {
+  document.getElementById('btn-start').disabled = !this.value.trim();
+});
+document.getElementById('guest-name-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && e.target.value.trim()) goToBrief();
+});
+function goToBrief() {
+  const n = document.getElementById('guest-name-input').value.trim();
+  if (!n) return;
+  G.guestName = n;
+  buildMissionChecklist();
+  showScreen('s-brief');
+}
+
+// ── SCREEN 2 ──
+function buildMissionChecklist() {
+  document.getElementById('mission-checklist').innerHTML = MISSIONS.map(m => `
+    <div class="check-item" id="ci-${m.id}" onclick="toggleMission('${m.id}')">
+      <div class="check-box" id="cb-${m.id}"></div>
+      <span class="check-emoji">${m.emoji}</span>
+      <span class="check-text">${m.label}</span>
+    </div>
+  `).join('');
+  G.selectedMissions.forEach(id => {
+    document.getElementById('ci-'+id)?.classList.add('checked');
+    const cb = document.getElementById('cb-'+id);
+    if (cb) cb.textContent = '✓';
+  });
+}
+function toggleMission(id) {
+  const i = G.selectedMissions.indexOf(id);
+  const item = document.getElementById('ci-'+id);
+  const box  = document.getElementById('cb-'+id);
+  if (i === -1) { G.selectedMissions.push(id); item.classList.add('checked'); box.textContent='✓'; }
+  else          { G.selectedMissions.splice(i,1); item.classList.remove('checked'); box.textContent=''; }
+}
+function selectAllMissions() {
+  G.selectedMissions = MISSIONS.map(m => m.id);
+  MISSIONS.forEach(m => {
+    document.getElementById('ci-'+m.id)?.classList.add('checked');
+    const cb = document.getElementById('cb-'+m.id);
+    if (cb) cb.textContent = '✓';
+  });
+}
+
+// ── SCREEN 3 — UPLOAD ──
+function goToUpload() {
+  if (!G.selectedMissions.length) selectAllMissions();
+  if (!G.activeMission) G.activeMission = G.selectedMissions[0];
+  document.getElementById('upload-guest-label').textContent = 'Điệp viên: ' + G.guestName;
+  buildUploadTabs();
+  buildCpDots();
+  setActiveMission(G.activeMission);
+  showScreen('s-upload');
+}
+function buildUploadTabs() {
+  const list = G.selectedMissions.length ? G.selectedMissions : MISSIONS.map(m=>m.id);
+  document.getElementById('upload-tabs').innerHTML = list.map(id => {
+    const m = MISSIONS.find(x=>x.id===id);
+    const n = photosForMission(id).length;
+    return `<div class="mission-tab ${id===G.activeMission?'active':''}" id="utab-${id}" onclick="setActiveMission('${id}')">
+      ${m.emoji} ${m.label.split(' ').slice(0,3).join(' ')}
+      ${n ? `<span style="background:rgba(255,255,255,0.25);border-radius:10px;padding:1px 5px;font-size:0.65rem">${n}</span>` : ''}
+    </div>`;
+  }).join('');
+}
+function buildCpDots() {
+  const list = G.selectedMissions.length ? G.selectedMissions : MISSIONS.map(m=>m.id);
+  document.getElementById('cp-dots').innerHTML = list.map(id => {
+    const done = photosForMission(id).length > 0;
+    const m = MISSIONS.find(x=>x.id===id);
+    return `<div class="cp-dot ${done?'done':''}" title="${m.label}"></div>`;
+  }).join('');
+}
+function setActiveMission(id) {
+  G.activeMission = id;
+  const m = MISSIONS.find(x=>x.id===id);
+  document.querySelectorAll('.mission-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('utab-'+id)?.classList.add('active');
+  document.getElementById('uz-mission-label').textContent = `Nhiệm vụ: ${m.emoji} ${m.label}`;
+  renderMiniGallery(id);
+}
+function photosForMission(missionId) {
+  if (window._fbOK) return G.remotePhotos.filter(p=>p.missionId===missionId);
+  return G.localPhotos[missionId] || [];
+}
+function renderMiniGallery(missionId) {
+  const photos = photosForMission(missionId);
+  const el = document.getElementById('mini-gallery-container');
+  if (!photos.length) { el.innerHTML=''; return; }
+  el.innerHTML = `<div class="mini-gallery">${photos.map((p,i)=>`
+    <div class="mini-photo" onclick="openLbMission('${missionId}',${i})">
+      <img src="${p.url||p.src}" loading="lazy">
+      <div class="mp-label">${p.guest}</div>
+    </div>`).join('')}</div>`;
+}
+
+// ── FILE HANDLER ──
+const zone = document.getElementById('upload-zone');
+zone.addEventListener('dragover', e=>{e.preventDefault();zone.classList.add('drag-over');});
+zone.addEventListener('dragleave', ()=>zone.classList.remove('drag-over'));
+zone.addEventListener('drop', e=>{e.preventDefault();zone.classList.remove('drag-over');handleFiles(e.dataTransfer.files);});
+document.getElementById('file-input').addEventListener('change', e=>{handleFiles(e.target.files);e.target.value='';});
+
+async function handleFiles(files) {
+  const arr = Array.from(files).filter(f=>f.type.startsWith('image/'));
+  if (!arr.length) return;
+  if (window._fbOK) await uploadFirebase(arr);
+  else uploadLocal(arr);
+}
+
+async function uploadFirebase(files) {
+  const { db, collection, addDoc } = window._fb;
+  const overlay = document.getElementById('upload-overlay');
+  const fill    = document.getElementById('prog-fill');
+  const pctEl   = document.getElementById('prog-pct');
+  const msgEl   = document.getElementById('overlay-msg');
+  overlay.classList.add('show');
+
+  for (let i=0; i<files.length; i++) {
+    const file = files[i];
+    msgEl.textContent = `Đang tải ảnh ${i+1} / ${files.length}...`;
+    fill.style.width = '10%';
+    pctEl.textContent = '10%';
+
+    try {
+      // Upload lên Cloudinary
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('upload_preset', window.CLOUDINARY_PRESET);
+      formData.append('folder', `wedding/${G.activeMission}`);
+
+      const res  = await fetch(`https://api.cloudinary.com/v1_1/${window.CLOUDINARY_CLOUD}/image/upload`, {
+        method: 'POST', body: formData
+      });
+      const data = await res.json();
+      fill.style.width = '80%';
+
+      if (data.secure_url) {
+        // Lưu URL vào Firestore
+        await addDoc(collection(db, 'photos'), {
+          url:       data.secure_url,
+          publicId:  data.public_id,
+          missionId: G.activeMission,
+          guest:     G.guestName,
+          time:      new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'}),
+          createdAt: new Date().toISOString(),
+        });
+        fill.style.width = '100%';
+        pctEl.textContent = '100%';
+      }
+    } catch(e) {
+      console.error('Upload error:', e);
+    }
+  }
+
+  overlay.classList.remove('show');
+  fill.style.width = '0%';
+  showToast(`✦ Đã tải lên ${files.length} ảnh — mọi người đã thấy rồi!`);
+}
+
+function uploadLocal(files) {
+  let done = 0;
+  files.forEach(file=>{
+    const r = new FileReader();
+    r.onload = e => {
+      const id = G.activeMission;
+      if (!G.localPhotos[id]) G.localPhotos[id]=[];
+      G.localPhotos[id].push({ src:e.target.result, url:e.target.result, guest:G.guestName, missionId:id,
+        time: new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'}) });
+      if (++done===files.length) {
+        saveLocal();
+        buildUploadTabs(); buildCpDots(); renderMiniGallery(id);
+        showToast(`✦ Đã lưu ${files.length} ảnh (chưa có Firebase)`);
+      }
+    };
+    r.readAsDataURL(file);
+  });
+}
+
+// ── SCREEN 4 — GALLERY ──
+function goToGallery() {
+  buildAlbumTabs();
+  renderGallery(G.activeGalleryTab);
+  showScreen('s-gallery');
+}
+function allPhotos() {
+  if (window._fbOK) return G.remotePhotos;
+  return Object.values(G.localPhotos).flat();
+}
+function buildAlbumTabs() {
+  const all = allPhotos();
+  const mTabs = MISSIONS.filter(m=>all.some(p=>p.missionId===m.id)).map(m=>{
+    const n = all.filter(p=>p.missionId===m.id).length;
+    return `<div class="album-tab ${G.activeGalleryTab===m.id?'active':''}" onclick="renderGallery('${m.id}')">
+      ${m.emoji} ${m.label.split(' ').slice(0,2).join(' ')}
+      <span class="tab-count">${n}</span></div>`;
+  }).join('');
+  document.getElementById('album-tabs').innerHTML =
+    `<div class="album-tab ${G.activeGalleryTab==='all'?'active':''}" onclick="renderGallery('all')">
+      🌸 Tất cả <span class="tab-count">${all.length}</span></div>${mTabs}`;
+}
+function renderGallery(tab) {
+  G.activeGalleryTab = tab;
+  buildAlbumTabs();
+  const all    = allPhotos();
+  const photos = tab==='all' ? all : all.filter(p=>p.missionId===tab);
+  window._gp   = photos;
+  const grid   = document.getElementById('gallery-grid');
+  if (!photos.length) {
+    grid.innerHTML = `<div class="empty-album"><p>Chưa có ảnh nào 🌸<br>Hãy là người đầu tiên!</p></div>`;
+    return;
+  }
+  grid.innerHTML = photos.map((p,i)=>{
+    const m = MISSIONS.find(x=>x.id===p.missionId);
+    return `<div class="gallery-item" onclick="openLbGallery(${i})">
+      <img src="${p.url||p.src}" loading="lazy">
+      <div class="gi-name">${p.guest} · ${m?.emoji||''}</div></div>`;
+  }).join('');
+}
+
+// ── SCREEN 5 ──
+function goToThanks() { spawnConfetti(); showScreen('s-thanks'); }
+function spawnConfetti() {
+  const colors = ['#c9a98a','#dfd2c3','#8a6448','#e8ddd4','#fff'];
+  const c = document.getElementById('s-thanks');
+  c.querySelectorAll('.confetti-piece').forEach(e=>e.remove());
+  for (let i=0;i<30;i++) {
+    const el = document.createElement('div');
+    el.className='confetti-piece';
+    el.style.cssText=`left:${Math.random()*100}%;background:${colors[~~(Math.random()*colors.length)]};width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;animation-duration:${3+Math.random()*5}s;animation-delay:${-Math.random()*4}s;border-radius:${Math.random()>.5?'50%':'2px'};`;
+    c.appendChild(el);
+  }
+}
+
+// ── LIGHTBOX ──
+function openLbMission(missionId, idx) { _lbList=photosForMission(missionId); _lbIdx=idx; showLb(); }
+function openLbGallery(idx)            { _lbList=window._gp||[]; _lbIdx=idx; showLb(); }
+function showLb() {
+  const p=_lbList[_lbIdx]; if(!p) return;
+  document.getElementById('lb-img').src = p.url||p.src;
+  const m = MISSIONS.find(x=>x.id===p.missionId);
+  document.getElementById('lb-meta').textContent = `${p.guest} · ${m?.emoji||''} ${m?.label||''} · ${p.time}`;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+function lbNav(d) { _lbIdx=(_lbIdx+d+_lbList.length)%_lbList.length; showLb(); }
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox();});
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') lbNav(-1);
+  if(e.key==='ArrowRight') lbNav(1);
+});
+
+// ── TOAST ──
+function showToast(msg) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+</script>
+</body>
+</html>
